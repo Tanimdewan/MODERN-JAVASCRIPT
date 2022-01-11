@@ -1,0 +1,40 @@
+
+output: node (js filename).
+
+EXternal.js:
+ export let pi= 3.14;
+ export let a=5.678;
+internal.js:
+import {pi,a} from './external.js'; //named import
+console.log(pi,a);
+................................................................
+
+EXternal.js:
+ export let pi= 3.14;
+ export let a=5.678;
+internal.js:
+import * as test from './external.js'; //named import
+console.log(test);
+console.log(test.pi);  // as display as object
+....................................................................
+import {a as vara, pi as varpi} from './external.js'; //named import
+console.log(vara,varpi);
+..............................default can be only one.......................
+EXternal.js:
+ export let pi= 3.14;
+  let a=5.678;
+  export default a ;
+internal.js:
+import dewan from './external.js'; //named import
+console.log(dewan);
+..........................................................................
+import dewan, {pi} from './external.js'; //named import
+console.log(dewan,pi);
+......................................................
+EXternal.js:
+export function myFun() { 
+     console.log('i am my fun');
+  }
+internal.js:
+import  {myFun} from './external.js'; //named import
+myFun();
